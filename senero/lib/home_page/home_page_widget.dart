@@ -1,3 +1,4 @@
+import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -12,8 +13,173 @@ class HomePageWidget extends StatefulWidget {
   _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _HomePageWidgetState extends State<HomePageWidget> {
+class _HomePageWidgetState extends State<HomePageWidget>
+    with TickerProviderStateMixin {
+  final animationsMap = {
+    'circleImageOnPageLoadAnimation': AnimationInfo(
+      curve: Curves.linear,
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'textOnPageLoadAnimation1': AnimationInfo(
+      curve: Curves.linear,
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'textOnPageLoadAnimation2': AnimationInfo(
+      curve: Curves.linear,
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'buttonOnPageLoadAnimation': AnimationInfo(
+      curve: Curves.linear,
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'textOnPageLoadAnimation3': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, -100),
+        scale: 0,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'containerOnPageLoadAnimation1': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(100, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'textOnPageLoadAnimation4': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(0, -100),
+        scale: 0,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'containerOnPageLoadAnimation2': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      duration: 600,
+      hideBeforeAnimating: true,
+      fadeIn: true,
+      initialState: AnimationState(
+        offset: Offset(-100, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+    'textOnActionTriggerAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onActionTrigger,
+      duration: 600,
+      hideBeforeAnimating: true,
+      initialState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 0,
+      ),
+      finalState: AnimationState(
+        offset: Offset(0, 0),
+        scale: 1,
+        opacity: 1,
+      ),
+    ),
+  };
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    startPageLoadAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onPageLoad),
+      this,
+    );
+    setupTriggerAnimations(
+      animationsMap.values
+          .where((anim) => anim.trigger == AnimationTrigger.onActionTrigger),
+      this,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +212,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             child: Image.network(
                               'https://picsum.photos/seed/213/600',
                             ),
-                          ),
+                          ).animated([
+                            animationsMap['circleImageOnPageLoadAnimation']!
+                          ]),
                         ),
                       ],
                     ),
@@ -65,7 +233,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                   fontSize: 32,
                                   fontWeight: FontWeight.w500,
                                 ),
-                          ),
+                          ).animated(
+                              [animationsMap['textOnPageLoadAnimation1']!]),
                         ),
                       ],
                     ),
@@ -88,7 +257,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),
-                            ),
+                            ).animated(
+                                [animationsMap['textOnPageLoadAnimation2']!]),
                           ),
                         ],
                       ),
@@ -119,7 +289,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ),
                             borderRadius: BorderRadius.circular(20),
                           ),
-                        ),
+                        ).animated(
+                            [animationsMap['buttonOnPageLoadAnimation']!]),
                       ],
                     ),
                     Padding(
@@ -143,7 +314,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     fontSize: 16,
                                     fontWeight: FontWeight.normal,
                                   ),
-                            ),
+                            ).animated(
+                                [animationsMap['textOnPageLoadAnimation3']!]),
                           ),
                         ],
                       ),
@@ -262,7 +434,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                             ],
                           ),
                         ),
-                      ),
+                      ).animated(
+                          [animationsMap['containerOnPageLoadAnimation1']!]),
                     ),
                     Padding(
                       padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 5.5),
@@ -285,7 +458,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                     fontSize: 16,
                                     fontWeight: FontWeight.normal,
                                   ),
-                            ),
+                            ).animated(
+                                [animationsMap['textOnPageLoadAnimation4']!]),
                           ),
                         ],
                       ),
@@ -611,7 +785,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                 ),
                               ],
                             ),
-                          ),
+                          ).animated([
+                            animationsMap['containerOnPageLoadAnimation2']!
+                          ]),
                         ),
                       ],
                     ),
@@ -626,7 +802,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                         fontFamily: 'Outfit',
                         color: FlutterFlowTheme.of(context).primaryColor,
                       ),
-                ),
+                ).animated([animationsMap['textOnActionTriggerAnimation']!]),
               ),
             ],
           ),
