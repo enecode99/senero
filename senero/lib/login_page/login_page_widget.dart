@@ -1,6 +1,9 @@
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../home_page/home_page_widget.dart';
+import '../password_page/password_page_widget.dart';
+import '../sign_up_page/sign_up_page_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -239,8 +242,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button-ForgotPassword pressed ...');
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.bottomToTop,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: PasswordPageWidget(),
+                                ),
+                              );
                             },
                             text: 'Forgot Password?',
                             options: FFButtonOptions(
@@ -252,7 +263,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                   .override(
                                     fontFamily: 'Outfit',
                                     color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                                        .primaryColor,
                                     fontSize: 14,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -264,8 +275,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             ),
                           ),
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button-Login pressed ...');
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.fade,
+                                  duration: Duration(milliseconds: 0),
+                                  reverseDuration: Duration(milliseconds: 0),
+                                  child: HomePageWidget(),
+                                ),
+                              );
                             },
                             text: 'Login',
                             options: FFButtonOptions(
@@ -310,8 +329,16 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                                 ),
                           ),
                           FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              await Navigator.push(
+                                context,
+                                PageTransition(
+                                  type: PageTransitionType.leftToRight,
+                                  duration: Duration(milliseconds: 300),
+                                  reverseDuration: Duration(milliseconds: 300),
+                                  child: SignUpPageWidget(),
+                                ),
+                              );
                             },
                             text: 'Create Account',
                             options: FFButtonOptions(
